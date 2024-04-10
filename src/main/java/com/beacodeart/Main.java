@@ -16,5 +16,23 @@ public class Main {
         TreeNode node1 = new TreeNode(1, node2, node3);
 
         System.out.println(DFS.depthFirstSearch(node1, 98));
+
+        Graph graph = new Graph();
+
+        graph.addNode(new GraphNode(0));
+        graph.addNode(new GraphNode(1));
+        graph.addNode(new GraphNode(2));
+        graph.addNode(new GraphNode(3));
+        graph.addNode(new GraphNode(4));
+
+        graph.addEdge(0, 1);
+        graph.addEdge(1, 2);
+        graph.addEdge(1, 4);
+        graph.addEdge(2, 3);
+        graph.addEdge(2, 4);
+        graph.addEdge(4, 0);
+        graph.addEdge(4, 2);
+
+        graph.print();
     }
 }
