@@ -36,5 +36,9 @@ public class Main {
         graph.print();
 
         DFSAdj.dfsAdj(graph, 0);
+
+        System.out.println("------------BFS-------------");
+
+        BFSAdj.BFS(graph, 0);
     }
 }
