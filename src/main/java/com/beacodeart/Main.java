@@ -28,7 +28,7 @@ public class Main {
         graph.addNode(new GraphNode(4));
 
         graph.addEdge(0, 1, 3);
-        graph.addEdge(1, 2, 19);
+        graph.addEdge(1, 2, 1);
         graph.addEdge(1, 4, 5);
         graph.addEdge(2, 3, 1);
         graph.addEdge(2, 4, 3);
@@ -37,7 +37,12 @@ public class Main {
 
         List<GraphNode> shortestPathList = Dikstras.DSP(graph, 0);
         for (GraphNode node: shortestPathList){
-            System.out.println("distance to node " + node.data + " equals " + node.dist);
+            System.out.print("distance to node " + node.data + " equals " + node.dist + " previous node = ");
+            if(node.prev!=null){
+                System.out.println(node.prev.data);
+            } else {
+                System.out.println("null");
+            }
         }
 
         // graph.print();
