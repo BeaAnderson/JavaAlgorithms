@@ -1,5 +1,7 @@
 package com.beacodeart;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         int[] arr1 = { 1, 9, 2, 88, 5, 43 };
@@ -17,7 +19,7 @@ public class Main {
 
         System.out.println(DFS.depthFirstSearch(node1, 98));
 
-        Graph graph = new Graph();
+        DijkstrasGraph graph = new DijkstrasGraph();
 
         graph.addNode(new GraphNode(0));
         graph.addNode(new GraphNode(1));
@@ -25,20 +27,25 @@ public class Main {
         graph.addNode(new GraphNode(3));
         graph.addNode(new GraphNode(4));
 
-        graph.addEdge(0, 1);
-        graph.addEdge(1, 2);
-        graph.addEdge(1, 4);
-        graph.addEdge(2, 3);
-        graph.addEdge(2, 4);
-        graph.addEdge(4, 0);
-        graph.addEdge(4, 2);
+        graph.addEdge(0, 1, 3);
+        graph.addEdge(1, 2, 19);
+        graph.addEdge(1, 4, 5);
+        graph.addEdge(2, 3, 1);
+        graph.addEdge(2, 4, 3);
+        graph.addEdge(4, 0, 9);
+        graph.addEdge(4, 2, 11);
 
-        graph.print();
+        List<GraphNode> shortestPathList = Dikstras.DSP(graph, 0);
+        for (GraphNode node: shortestPathList){
+            System.out.println("distance to node " + node.data + " equals " + node.dist);
+        }
 
-        DFSAdj.dfsAdj(graph, 0);
+        // graph.print();
 
-        System.out.println("------------BFS-------------");
+        // DFSAdj.dfsAdj(graph, 0);
 
-        BFSAdj.BFS(graph, 0);
+        // System.out.println("------------BFS-------------");
+
+        // BFSAdj.BFS(graph, 0);
     }
 }
