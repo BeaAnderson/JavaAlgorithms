@@ -21,21 +21,18 @@ public class Main {
 
         DijkstrasGraph graph = new DijkstrasGraph();
 
-        graph.addNode(new GraphNode(0));
-        graph.addNode(new GraphNode(1));
-        graph.addNode(new GraphNode(2));
-        graph.addNode(new GraphNode(3));
-        graph.addNode(new GraphNode(4));
+        for (int i=0; i<1000; i++){
+            graph.addNode(new GraphNode(i));
+        }
 
-        graph.addEdge(0, 1, 3);
-        graph.addEdge(1, 2, 1);
-        graph.addEdge(1, 4, 5);
-        graph.addEdge(2, 3, 1);
-        graph.addEdge(2, 4, 3);
-        graph.addEdge(4, 0, 9);
-        graph.addEdge(4, 2, 11);
+        Generator.generateEdges(graph);
 
+        long startTime = System.nanoTime();
         List<GraphNode> shortestPathList = Dikstras.DSP(graph, 0);
+        long endTime = System.nanoTime();
+
+        long executionTime = (endTime - startTime) / 1000000;
+
         for (GraphNode node: shortestPathList){
             System.out.print("distance to node " + node.data + " equals " + node.dist + " previous node = ");
             if(node.prev!=null){
@@ -45,6 +42,8 @@ public class Main {
             }
         }
 
+        System.out.println(shortestPathList.size());
+        System.out.println("DSP Execution time: " + executionTime + "ms");
         // graph.print();
 
         // DFSAdj.dfsAdj(graph, 0);
@@ -52,5 +51,6 @@ public class Main {
         // System.out.println("------------BFS-------------");
 
         // BFSAdj.BFS(graph, 0);
+        
     }
 }
