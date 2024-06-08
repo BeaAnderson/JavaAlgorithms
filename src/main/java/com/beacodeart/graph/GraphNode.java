@@ -1,4 +1,4 @@
-package com.beacodeart;
+package com.beacodeart.graph;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.beacodeart;
+package com.beacodeart.graph;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

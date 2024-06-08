@@ -1,4 +1,4 @@
-package com.beacodeart;
+package com.beacodeart.dfstree;
 
 public class DFS {
     

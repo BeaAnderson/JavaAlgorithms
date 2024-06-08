@@ -2,6 +2,15 @@ package com.beacodeart;
 
 import java.util.List;
 
+import com.beacodeart.binarsearch.BinarySearch;
+import com.beacodeart.dfstree.DFS;
+import com.beacodeart.dfstree.TreeNode;
+import com.beacodeart.graph.DijkstrasGraph;
+import com.beacodeart.graph.Dikstras;
+import com.beacodeart.graph.Generator;
+import com.beacodeart.graph.GraphNode;
+import com.beacodeart.merge.MergeSort;
+
 public class Main {
     public static void main(String[] args) {
         int[] arr1 = { 1, 9, 2, 88, 5, 43 };
@@ -12,38 +21,42 @@ public class Main {
             System.out.println(i);
         }
 
-        TreeNode node4 = new TreeNode(98);
-        TreeNode node2 = new TreeNode(5, node4, null);
-        TreeNode node3 = new TreeNode(4);
-        TreeNode node1 = new TreeNode(1, node2, node3);
+        System.out.println(BinarySearch.binarsearch(arr1, 55));
 
-        System.out.println(DFS.depthFirstSearch(node1, 98));
+        // TreeNode node4 = new TreeNode(98);
+        // TreeNode node2 = new TreeNode(5, node4, null);
+        // TreeNode node3 = new TreeNode(4);
+        // TreeNode node1 = new TreeNode(1, node2, node3);
 
-        DijkstrasGraph graph = new DijkstrasGraph();
+        // System.out.println(DFS.depthFirstSearch(node1, 98));
 
-        for (int i=0; i<1000; i++){
-            graph.addNode(new GraphNode(i));
-        }
+        // DijkstrasGraph graph = new DijkstrasGraph();
 
-        Generator.generateEdges(graph);
+        // for (int i=0; i<1000; i++){
+        //     graph.addNode(new GraphNode(i));
+        // }
 
-        long startTime = System.nanoTime();
-        List<GraphNode> shortestPathList = Dikstras.DSP(graph, 0);
-        long endTime = System.nanoTime();
+        // Generator.generateEdges(graph);
 
-        long executionTime = (endTime - startTime) / 1000000;
+        // long startTime = System.nanoTime();
+        // List<GraphNode> shortestPathList = Dikstras.DSP(graph, 0);
+        // long endTime = System.nanoTime();
 
-        for (GraphNode node: shortestPathList){
-            System.out.print("distance to node " + node.data + " equals " + node.dist + " previous node = ");
-            if(node.prev!=null){
-                System.out.println(node.prev.data);
-            } else {
-                System.out.println("null");
-            }
-        }
+        // long executionTime = (endTime - startTime) / 1000000;
 
-        System.out.println(shortestPathList.size());
-        System.out.println("DSP Execution time: " + executionTime + "ms");
+        // for (GraphNode node: shortestPathList){
+        //     System.out.print("distance to node " + node.getData() + " equals " + node.getDist() + " previous node = ");
+        //     if(node.getPrev()!=null){
+        //         System.out.println(node.getPrev().getData());
+        //     } else {
+        //         System.out.println("null");
+        //     }
+        // }
+
+        // System.out.println(shortestPathList.size());
+        // System.out.println("DSP Execution time: " + executionTime + "ms");
+
+        
         // graph.print();
 
         // DFSAdj.dfsAdj(graph, 0);

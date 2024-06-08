@@ -1,4 +1,4 @@
-package com.beacodeart;
+package com.beacodeart.graph;
 
 public class Generator {
     public static void generateEdges(DijkstrasGraph graph){
